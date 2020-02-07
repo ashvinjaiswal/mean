@@ -1,6 +1,7 @@
 # MeanCourse
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.0.
+This application demponstrated how you create the MEAN application.
 
 ## Development server
 
@@ -25,3 +26,41 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Steps to follow creating through command line
+
+#### Install material
+```
+ng add @angular/material@7.3.7
+```
+#### Create module
+```
+ng generate module app-material
+```
+
+#### Create Component
+```
+ng g c posts/post-create -d
+```
+
+#### create header Component
+```
+ng g c header/header -d
+```
+
+#### create list Component
+```
+ng g c posts/post-list
+```
+
+#### Generate model 
+```
+ng generate interface <name> <type>
+ng generate i posts/post model -d
+Output: src/app/posts/post.model.ts 
+```
+
+#### Generate Service
+ng generate service <name of service>
+ng generate service posts/posts -d
+Output: src/app/posts/posts.service.ts 
