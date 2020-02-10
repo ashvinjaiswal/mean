@@ -61,6 +61,33 @@ Output: src/app/posts/post.model.ts
 ```
 
 #### Generate Service
+```
 ng generate service <name of service>
 ng generate service posts/posts -d
 Output: src/app/posts/posts.service.ts 
+```
+
+#### Subject In Rxjs
+Subjects can multicast. Multicasting basically means that one Observable execution is shared among multiple subscribers.
+
+Subjects are like EventEmitters, they maintain a registry of many listeners
+
+Below is simple example of rxjs subject. We used in our post service for emitting posts data when new post is created.
+
+```
+import * as Rx from "rxjs";
+
+const subject = new Rx.Subject();
+
+// subscriber 1
+subject.subscribe((data) => {
+    console.log(data); // 0.24957144215097515 (random number)
+});
+
+// subscriber 2
+subject.subscribe((data) => {
+    console.log(data); // 0.24957144215097515 (random number)
+});
+
+subject.next(Math.random());
+```
