@@ -91,3 +91,55 @@ subject.subscribe((data) => {
 
 subject.next(Math.random());
 ```
+
+## Node Server
+Node is runtime environment that run on the server. You can create the server that listens to requests and sends back responses with it
+
+1. Import is the http package, this is defult package that come with global installation.
+```
+const http = require('http');
+```
+2. Create Server
+```
+const server = http.createServer((req, resp)=>{
+  resp.end('this is first request');
+});
+```
+3. Activate server
+```
+server.listen(process.env.PORT || 3100);
+```
+
+## Express
+1. Install express with specific version
+```
+npm install express@~4.16.3
+```
+2. Creating express app - An Express app is it actually is just a big chain of middlewares we apply to the incoming requests, so like a funnel through which we send that express.
+```
+const express = require("express");
+const app = express();
+```
+
+3.  The middleware function, the use function here in its
+simplest form takes a function which is executed for an incoming request and that function takes three
+arguments, request and response just like nodejs did
+but also a next function.
+
+```
+app.use((req,res,next) => {
+  console.log('First Middleware');
+  next()
+});
+app.use((req,res,next) => {
+  res.send('Hello from express');
+  next()
+});
+```
+
+4. Export Express app 
+```
+module.exports = app;
+```
+
+
